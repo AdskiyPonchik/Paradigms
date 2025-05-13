@@ -1,0 +1,113 @@
+package woche3;
+/*
+Polymorphismus ist eines der Grundprinzipien der objektorientierten Programmierung (OOP),
+das es ermöglicht, Objekte unterschiedlichen Typs einheitlich zu behandeln.
+In Java ermöglicht die Polymorphie, dass Methoden je nach Objekt, das die Methode aufruft,
+unterschiedliche Aktionen ausführen können.
+*/
+
+public class Polymorph {
+
+    //statische polymorphie
+    public static class Mathutils {
+        public int add(int a, int b) {
+            return a + b;
+        }
+
+        public double add(double a, double b) {
+            return a + b;
+        }
+
+        public int add(int a, int b, int c) {
+            return a + b + c;
+        }
+    }
+
+    //dynamische polymorphie
+    public static class Animal {
+        public void sound() {
+            System.out.println("Animal makes a sound");
+        }
+    }
+
+    public static class Dog extends Animal {
+        @Override
+        public void sound() {
+            System.out.println("Dog barks");
+        }
+    }
+
+    public static class Cat extends Animal {
+        @Override
+        public void sound() {
+            System.out.println("Cat meows");
+        }
+    }
+
+    //auch dynamische polymorphie, aber mit interface
+    interface Shape {
+        void draw();
+    }
+
+    static class Circle implements Shape {
+        @Override
+        public void draw() {
+            System.out.println("Drawing a Circle");
+        }
+    }
+
+    static class Square implements Shape {
+        @Override
+        public void draw() {
+            System.out.println("Drawing a Square");
+        }
+    }
+
+    static class Triangle implements Shape {
+        @Override
+        public void draw() {
+            System.out.println("Drawing a Triangle");
+        }
+    }
+    /*
+    Mögliche Lösungen:
+        - Eine der Methoden entfernen, wenn sie das Gleiche tun.
+        - Die Methoden unterschiedlich benennen.
+        - Einen der generischen Typen durch einen konkreten Typ ersetzen.
+     */
+    public class GenericFail<S,T> {
+        public void doAnything(S sValue) {
+            System.out.println("Doing anything with S");
+        }
+
+        public void doAnything(T sValue) {
+            System.out.println("Doing anything with T");
+        }
+    }
+
+    public static void main(String[] args) {
+        Shape[] shapes = {new Circle(), new Square(), new Triangle()};
+
+        for (Shape shape : shapes) {
+            shape.draw();
+        }
+    }
+}
+/* Vorteile:
+Vereinfachung des Codes
+Polymorphismus ermöglicht allgemeineren Code, der mit Objekten verschiedener Typen arbeitet.
+Statt viele Methoden zu schreiben, genügt eine Methode für eine Schnittstelle oder Oberklasse.
+Die passende Implementierung wird automatisch aufgerufen.
+
+Erweiterbarkeit
+Neuer Code kann leicht ergänzt werden, ohne bestehenden Code zu ändern.
+Neue Klassen, die ein Interface wie Shape implementieren, funktionieren direkt mit dem vorhandenen Code.
+
+Wiederverwendbarkeit
+Durch Polymorphismus lassen sich Methoden mehrfach verwenden, etwa für alle Objekte, die Shape implementieren.
+Das reduziert doppelten Code und verbessert die Wartbarkeit.
+
+Bessere Lesbarkeit
+Polymorpher Code ist klarer, da er mit abstrakten Typen arbeitet.
+So bleibt der Fokus auf der Logik, nicht auf konkreten Implementierungen.
+ */
