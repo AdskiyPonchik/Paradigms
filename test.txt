@@ -1,0 +1,2 @@
+This log message should be written to the file
+This is an error message also written to file (timestamp: 2025-05-14T14:38:20.512451269)

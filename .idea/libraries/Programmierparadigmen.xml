@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Programmierparadigmen">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/b012-templates.zip!/" />
+      <root url="jar://$PROJECT_DIR$/b013-templates.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
